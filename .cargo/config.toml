@@ -1,5 +1,5 @@
 [alias]
-run = "run ./build_output/debug/hello_world"
+r = "run ./build_output/debug/hello_world"
 
 [build]
 target-dir = "build_output"

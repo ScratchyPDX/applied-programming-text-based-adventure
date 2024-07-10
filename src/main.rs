@@ -16,6 +16,8 @@ fn main() {
     clear_screen();
 
     // set the initial value of the door as locked
+    // have the following lines enclosed in curly-braces ensure the 'door_locked' variable goes
+    // out of scope and ensures the lock on the global variable is released.
     {
         let mut door_locked = IS_DOOR_LOCKED.lock().unwrap();
         *door_locked = true;
@@ -78,7 +80,6 @@ fn lighter() {
 fn table() {
     println!("\n\nWith a feeling of uneasiness, you step forward and sees a small table.  There's a TEDDY BEAR on the it, and it's flanked by two doors - one on the LEFT and another on the RIGHT. Which do you choose?");
     let choice = handle_choice(&LEFT_RIGHT_OR_TEDDY_BEAR).to_string(); 
-    println!("You chose '{}'", choice);
     if choice == "LEFT" {
         left_door();
     }
@@ -96,26 +97,28 @@ fn left_door() {
 }
 
 fn right_door() {
-    println!("right_door: 1");
     let mut is_locked: bool;
+    // have the following lines enclosed in curly-braces ensure the 'door_locked' variable goes
+    // out of scope and ensures the lock on the global variable is released.
     {
         let door_locked = IS_DOOR_LOCKED.lock().unwrap();
         is_locked = *door_locked;
     }
-    println!("right_door: 2");
     if is_locked {
         println!("\n\nYou step to the RIGHT door and check the door knob. LOCKED! You return back to the table");
         table();
     }
     else {
         println!("\n\nYou step to the RIGHT door and checks the door knob. LOCKED! You use the key and it unlocks the door. You slowly turn the knob and it opens! You step through and into freedom ...");
-        println!("...The sound was coming from inside the house!!!!");
-        println!("Thanks for playing! Goodbye!");
+        println!("\n\n...The sound was coming from inside the house!!!!");
+        println!("\n\nThanks for playing! Goodbye!");
         quit_game();
     }
 }
 
 fn teddy_bear() {
+    // have the following lines enclosed in curly-braces ensure the 'door_locked' variable goes
+    // out of scope and ensures the lock on the global variable is released.
     {
         let mut door_locked = IS_DOOR_LOCKED.lock().unwrap();
         *door_locked = false;

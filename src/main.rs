@@ -16,9 +16,10 @@ fn main() {
     clear_screen();
 
     // set the initial value of the door as locked
-    let mut door_locked = IS_DOOR_LOCKED.lock().unwrap();
-    *door_locked = true;
-
+    {
+        let mut door_locked = IS_DOOR_LOCKED.lock().unwrap();
+        *door_locked = true;
+    }
     print!("Please enter your name: ");
 
     // Flush stdout to ensure the prompt is displayed before reading input
@@ -95,8 +96,14 @@ fn left_door() {
 }
 
 fn right_door() {
-    let door_locked = IS_DOOR_LOCKED.lock().unwrap();
-    if *door_locked {
+    println!("right_door: 1");
+    let mut is_locked: bool;
+    {
+        let door_locked = IS_DOOR_LOCKED.lock().unwrap();
+        is_locked = *door_locked;
+    }
+    println!("right_door: 2");
+    if is_locked {
         println!("\n\nYou step to the RIGHT door and check the door knob. LOCKED! You return back to the table");
         table();
     }
@@ -109,8 +116,10 @@ fn right_door() {
 }
 
 fn teddy_bear() {
-    let mut door_locked = IS_DOOR_LOCKED.lock().unwrap();
-    *door_locked = false;
+    {
+        let mut door_locked = IS_DOOR_LOCKED.lock().unwrap();
+        *door_locked = false;
+    }
     println!("\n\nWith apprehension you approach the table and pick up the TEDDY BEAR. You feel something attached to its back and turns the TEDDY BEAR over. There's a key attached and you removes the key. Having made a new discovery, you return to the table");
     table();
 }

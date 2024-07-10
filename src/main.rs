@@ -54,8 +54,8 @@ fn bedroom(player_name: String) {
 }
 
 fn hall() {
-    println!("You get's out of bed and steps into the hall. The hall is very dark, but you see a small table in the dim light. You step forward. On the table is a box of MATCHES and a LIGHTER. You can only pick up one item. Which item do you choose?");
-    let choice = handle_choice(&HALL_MATCHES_OR_LIGHTER).to_string(); 
+    println!("\n\nYou get out of bed and step into the hall. The hall is very dark, but you see a small table in the dim light. You step forward. On the table is a box of MATCHES and a LIGHTER. You can only pick up one item. Which item do you choose?");
+    let choice = handle_choice(&HALL_MATCHES_OR_LIGHTER).to_string();
     if choice == "MATCHES" {
         matches();
     }
@@ -75,8 +75,9 @@ fn lighter() {
 }
 
 fn table() {
-    println!("\n\nWith a feeling of uneasiness, you step forward and sees a small table.  There's a TEDDY BEAR on the it, and it's flanked by two doors - one on the LEFT and another on the RIGHT. Which do you chose?");
+    println!("\n\nWith a feeling of uneasiness, you step forward and sees a small table.  There's a TEDDY BEAR on the it, and it's flanked by two doors - one on the LEFT and another on the RIGHT. Which do you choose?");
     let choice = handle_choice(&LEFT_RIGHT_OR_TEDDY_BEAR).to_string(); 
+    println!("You chose '{}'", choice);
     if choice == "LEFT" {
         left_door();
     }
@@ -89,7 +90,7 @@ fn table() {
 }
 
 fn left_door() {
-    println!("\n\nYou steps to the LEFT door and checks the door knob. It turns freely, and you slowly opens the door to the room beyond is dark. You raise the LIGHTER to illuminate the space beyond. Just as you do, a hidious monster jumps out from the inky depths and yells, 'BOO!' You die of fright!  To bad. Better luck next time. Bwahahaha!");
+    println!("\n\nYou steps to the LEFT door and checks the door knob. It turns freely, and you slowly opens the door to the room beyond is dark. You raise the LIGHTER to illuminate the space beyond. Just as you do, a hideous monster jumps out from the inky depths and yells, 'BOO!' You die of fright!  To bad. Better luck next time. Bwahahaha!");
     quit_game();
 }
 
@@ -110,6 +111,6 @@ fn right_door() {
 fn teddy_bear() {
     let mut door_locked = IS_DOOR_LOCKED.lock().unwrap();
     *door_locked = false;
-    println!("With apprehension you approach the table and pick up the TEDDY BEAR. You feel something attached to its back and turns the TEDDY BEAR over. There's a key attached and you removes the key. Having made a new discovery, you return to the table");
+    println!("\n\nWith apprehension you approach the table and pick up the TEDDY BEAR. You feel something attached to its back and turns the TEDDY BEAR over. There's a key attached and you removes the key. Having made a new discovery, you return to the table");
     table();
 }

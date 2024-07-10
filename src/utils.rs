@@ -15,6 +15,7 @@ pub fn handle_choice(choice_list: &[&str]) -> String {
       choice.clear();
       io::stdin().read_line(&mut choice).expect("Failed to read line");
       let choice = choice.trim().to_uppercase();
+      println!("You chose '{}'", choice);
       if choice == "QUIT" {
           quit_game();
           break; 
@@ -24,7 +25,7 @@ pub fn handle_choice(choice_list: &[&str]) -> String {
           break;
       }
   }
-  return choice.trim().to_string();
+  return choice.trim().to_uppercase().to_string();
 }
 
 pub fn quit_game() {

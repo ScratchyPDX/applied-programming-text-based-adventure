@@ -1,9 +1,7 @@
 use std::io::{self, Write}; // Import Write to flush stdout
 use std::process::Command;
 use std::process;
-use std::sync::Mutex;
-
-static IS_DOOR_LOCKED: Mutex<bool> = Mutex::new(true);
+use crate::door_lock::GLOBAL_DOOR_LOCK;
 
 pub fn clear_screen() {
   Command::new("clear").status().unwrap();
@@ -38,11 +36,9 @@ pub fn quit_game() {
 }
 
 pub fn get_is_door_locked() -> bool {
-  let is_door_locked = IS_DOOR_LOCKED.lock().unwrap();
-  return *is_door_locked;
+  return GLOBAL_DOOR_LOCK.get_is_locked();
 }
 
 pub fn set_is_door_locked(value: bool) {
-  let mut is_door_locked = IS_DOOR_LOCKED.lock().unwrap();
-  *is_door_locked = value;
+  GLOBAL_DOOR_LOCK.set_is_locked(value);
 }

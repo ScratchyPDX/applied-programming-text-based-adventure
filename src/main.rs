@@ -8,6 +8,8 @@ use utils::quit_game;
 use utils::get_is_door_locked;
 use utils::set_is_door_locked;
 
+mod door_lock;
+
 const GO_OR_STAY_LIST: [&str; 3] = ["GO", "STAY", "BACK"];
 const HALL_MATCHES_OR_LIGHTER: [&str; 2] = ["MATCHES", "LIGHTER"];
 const LEFT_RIGHT_OR_TEDDY_BEAR: [&str; 5] = ["LEFT", "RIGHT", "TEDDY BEAR", "BEAR", "TEDDY"];

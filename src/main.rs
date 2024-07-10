@@ -1,27 +1,22 @@
 use std::io::{self, Write}; // Import Write to flush stdout
-use std::sync::Mutex;
 
 // imports from other modules
 mod utils;
 use utils::handle_choice;
 use utils::clear_screen;
 use utils::quit_game;
+use utils::get_is_door_locked;
+use utils::set_is_door_locked;
 
 const GO_OR_STAY_LIST: [&str; 3] = ["GO", "STAY", "BACK"];
 const HALL_MATCHES_OR_LIGHTER: [&str; 2] = ["MATCHES", "LIGHTER"];
 const LEFT_RIGHT_OR_TEDDY_BEAR: [&str; 5] = ["LEFT", "RIGHT", "TEDDY BEAR", "BEAR", "TEDDY"];
-static IS_DOOR_LOCKED: Mutex<bool> = Mutex::new(true);
 
 fn main() {
     clear_screen();
 
-    // set the initial value of the door as locked
-    // have the following lines enclosed in curly-braces ensure the 'door_locked' variable goes
-    // out of scope and ensures the lock on the global variable is released.
-    {
-        let mut door_locked = IS_DOOR_LOCKED.lock().unwrap();
-        *door_locked = true;
-    }
+    set_is_door_locked(true);
+
     print!("Please enter your name: ");
 
     // Flush stdout to ensure the prompt is displayed before reading input
@@ -97,14 +92,7 @@ fn left_door() {
 }
 
 fn right_door() {
-    let mut is_locked: bool;
-    // have the following lines enclosed in curly-braces ensure the 'door_locked' variable goes
-    // out of scope and ensures the lock on the global variable is released.
-    {
-        let door_locked = IS_DOOR_LOCKED.lock().unwrap();
-        is_locked = *door_locked;
-    }
-    if is_locked {
+    if get_is_door_locked() {
         println!("\n\nYou step to the RIGHT door and check the door knob. LOCKED! You return back to the table");
         table();
     }
@@ -117,12 +105,7 @@ fn right_door() {
 }
 
 fn teddy_bear() {
-    // have the following lines enclosed in curly-braces ensure the 'door_locked' variable goes
-    // out of scope and ensures the lock on the global variable is released.
-    {
-        let mut door_locked = IS_DOOR_LOCKED.lock().unwrap();
-        *door_locked = false;
-    }
+    set_is_door_locked(false);
     println!("\n\nWith apprehension you approach the table and pick up the TEDDY BEAR. You feel something attached to its back and turns the TEDDY BEAR over. There's a key attached and you removes the key. Having made a new discovery, you return to the table");
     table();
 }

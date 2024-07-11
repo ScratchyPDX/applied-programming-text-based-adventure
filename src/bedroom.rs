@@ -1,5 +1,6 @@
 use crate::utils::quit_game;
 use crate::utils::handle_choice;
+use crate::utils::print_wrapped_text;
 mod hall;
 use hall::Hall;
 
@@ -16,7 +17,7 @@ impl Bedroom {
   pub fn enter(&self) {
     const GO_OR_STAY_LIST: [&str; 3] = ["GO", "STAY", "BACK"];
     println!("{}, you are in a bedroom", self.player_name);
-    println!("It's the middle of the night, and you startled awake by a noise coming from outside the room. What do you do?? GO check out the noise or STAY in bed?");
+    print_wrapped_text("It's the middle of the night, and you startled awake by a noise coming from outside the room. What do you do?? GO check out the noise or STAY in bed?");
     let choice = handle_choice(&GO_OR_STAY_LIST).to_string(); 
     if choice == "STAY" {
         quit_game();

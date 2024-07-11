@@ -2,6 +2,8 @@ use std::io::{self, Write}; // Import Write to flush stdout
 use std::process::Command;
 use std::process;
 use crate::door_lock::GLOBAL_DOOR_LOCK;
+use term_size;
+use textwrap::fill;
 
 pub fn clear_screen() {
   Command::new("clear").status().unwrap();
@@ -41,4 +43,15 @@ pub fn get_is_door_locked() -> bool {
 
 pub fn set_is_door_locked(value: bool) {
   GLOBAL_DOOR_LOCK.set_is_locked(value);
+}
+
+pub fn print_wrapped_text(text: &str) {
+  if let Some((width, _)) = term_size::dimensions() {
+      // Use the `fill` function from the `textwrap` crate to wrap text
+      let wrapped = fill(text, width);
+      println!("{}", wrapped);
+  } else {
+      // Fallback if terminal size cannot be determined
+      println!("{}", text);
+  }
 }

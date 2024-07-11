@@ -1,4 +1,5 @@
 use crate::utils::handle_choice;
+use crate::utils::print_wrapped_text;
 mod left_door;
 use left_door::LeftDoor;
 mod right_door;
@@ -19,7 +20,7 @@ impl Table {
 
   pub fn enter(&self) {
     const LEFT_RIGHT_OR_TEDDY_BEAR: [&str; 5] = ["LEFT", "RIGHT", "TEDDY BEAR", "BEAR", "TEDDY"];
-    println!("\n\nWith a feeling of uneasiness, you step forward and sees a small table.  There's a TEDDY BEAR on the it, and it's flanked by two doors - one on the LEFT and another on the RIGHT. Which do you choose?");
+    print_wrapped_text("\n\nWith a feeling of uneasiness, you step forward and sees a small table.  There's a TEDDY BEAR on the it, and it's flanked by two doors - one on the LEFT and another on the RIGHT. Which do you choose?");
     let choice = handle_choice(&LEFT_RIGHT_OR_TEDDY_BEAR).to_string(); 
     if choice == "LEFT" {
       let left_door = LeftDoor::new();

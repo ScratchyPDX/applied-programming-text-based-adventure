@@ -1,6 +1,9 @@
 use crate::utils::*;
 mod hall;
 use hall::Hall;
+use colored::*;
+use std::{thread, time::Duration};
+use std::io::{self, Write};
 
 pub struct Bedroom {
   player_name: String
@@ -18,18 +21,19 @@ impl Bedroom {
     print_wrapped_text(
       &format!("\n{} {} {} {} {}", 
         "It's the middle of the night, and you startled awake by a noise coming from outside the room. What do you do??", 
-        colorize_default(GO_OR_STAY_LIST[0]), 
+        GO_OR_STAY_LIST[0].red(), 
         "check out the noise or", 
-        colorize(GO_OR_STAY_LIST[1], "red"),  
+        GO_OR_STAY_LIST[1].red(),  
         "in bed?"));
  
     let choice = handle_choice(&GO_OR_STAY_LIST).to_string(); 
 
     if choice == "STAY" {
-      print_wrapped_text(
-        &format!("\n{}{}", 
-          "Ok, stay in bed....", 
-          italic(&colorize("CHICKEN!!!", "red"))));
+      print!("\n\nOk, stay in bed....");
+      io::stdout().flush().unwrap();
+      thread::sleep(Duration::from_secs(2));
+      println!("{}", "CHICKEN!!!".red().italic());
+      thread::sleep(Duration::from_secs(2));
       quit_game();
     } 
     else if choice == "BACK" {

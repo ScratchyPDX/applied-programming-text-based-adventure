@@ -4,7 +4,6 @@ use std::process;
 use crate::door_lock::GLOBAL_DOOR_LOCK;
 use term_size;
 use textwrap::fill;
-use colored::*;
 
 pub fn clear_screen() {
   Command::new("clear").status().unwrap();
@@ -55,16 +54,4 @@ pub fn print_wrapped_text(text: &str) {
       // Fallback if terminal size cannot be determined
       println!("{}", text);
   }
-}
-
-pub fn colorize_default(text: &str) -> String {
-  return text.color("green").to_string();
-}
-
-pub fn colorize(text: &str, color: &str) -> String {
-  return text.color(color).to_string();
-}
-
-pub fn italic(text: &str) -> String {
-  return text.italic().to_string();
 }

@@ -21,9 +21,9 @@ impl Bedroom {
     print_wrapped_text(
       &format!("\n{} {} {} {} {}", 
         "It's the middle of the night, and you startled awake by a noise coming from outside the room. What do you do??", 
-        GO_OR_STAY_LIST[0].red(), 
+        GO_OR_STAY_LIST[0].green(), 
         "check out the noise or", 
-        GO_OR_STAY_LIST[1].red(),  
+        GO_OR_STAY_LIST[1].green(),  
         "in bed?"));
  
     let choice = handle_choice(&GO_OR_STAY_LIST).to_string(); 

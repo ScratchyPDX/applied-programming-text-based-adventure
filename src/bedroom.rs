@@ -29,10 +29,10 @@ impl Bedroom {
     let choice = handle_choice(&GO_OR_STAY_LIST).to_string(); 
 
     if choice == "STAY" {
-      print!("\n\nOk, stay in bed....");
+      print!("\n\nOk, stay in bed.... ");
       io::stdout().flush().unwrap();
       thread::sleep(Duration::from_secs(2));
-      println!("{}", "CHICKEN!!!".red().italic());
+      println!("{}", "YOU CHICKEN!!!".red().italic());
       thread::sleep(Duration::from_secs(2));
       quit_game();
     } 

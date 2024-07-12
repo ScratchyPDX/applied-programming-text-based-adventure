@@ -23,7 +23,7 @@ impl LeftDoor {
         "LEFT".green(), 
         "door and checks the door knob. It turns freely, and you slowly open the door..."));
 
-        thread::sleep(Duration::from_secs(1));
+        thread::sleep(Duration::from_secs(4));
         print!("{}", "\nC ".red().bold().italic());
         io::stdout().flush().unwrap();
         thread::sleep(Duration::from_secs(1));
@@ -41,10 +41,10 @@ impl LeftDoor {
         thread::sleep(Duration::from_secs(1));
         print!("{}", "!".red().bold().italic());
         io::stdout().flush().unwrap();
-        thread::sleep(Duration::from_secs(1));
+        thread::sleep(Duration::from_secs(2));
 
         print_wrapped_text("\n\n...to the pitch-black room beyond.");
-        thread::sleep(Duration::from_secs(2));
+        thread::sleep(Duration::from_secs(4));
 
         print_wrapped_text(
           &format!("{} {} {} {} {} {}", 
@@ -64,7 +64,7 @@ impl LeftDoor {
         thread::sleep(Duration::from_secs(1));
         print!("{}", "DEAD!!".red().bold());
         io::stdout().flush().unwrap();
-        thread::sleep(Duration::from_secs(2));
+        thread::sleep(Duration::from_secs(4));
 
         print_wrapped_text("\n\nBwahahaha! You die of fright! To bad... Better luck next time.");
         quit_game();

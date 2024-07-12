@@ -26,6 +26,7 @@ impl RightDoor {
           "LOCKED!".red(),
           "You return back to the table."
         ));
+      thread::sleep(Duration::from_secs(3));
       let table = Table::new();
       table.enter();
     }
@@ -38,9 +39,9 @@ impl RightDoor {
             "LOCKED!".red(),
             "You use the key and it unlocks the door. You slowly turn the knob and it opens! You step through and into freedom..."
         ));
-        thread::sleep(Duration::from_secs(2));
+        thread::sleep(Duration::from_secs(3));
         print_wrapped_text("\n\n...The sound you heard was coming from inside the house!!!!");
-        thread::sleep(Duration::from_secs(2));
+        thread::sleep(Duration::from_secs(3));
         print_wrapped_text("\n\nThanks for playing! Goodbye!");
         quit_game();
     }

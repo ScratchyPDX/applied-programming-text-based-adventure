@@ -42,6 +42,7 @@ impl Bedroom {
       self.enter();
     } 
     else {
+      clear_screen();
       let hall = Hall::new();
       hall.enter();
     }

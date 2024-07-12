@@ -23,7 +23,7 @@ impl Table {
     const LEFT_RIGHT_OR_TEDDY_BEAR: [&str; 5] = ["LEFT", "RIGHT", "TEDDY BEAR", "BEAR", "TEDDY"];
     print_wrapped_text(
       &format!("{} {} {} {} {} {}{}", 
-        "\n\nWith a feeling of uneasiness, you step forward and sees a small table. There's a", 
+        "\n\nWith a feeling of uneasiness, you step forward and see a small table. There's a", 
         LEFT_RIGHT_OR_TEDDY_BEAR[2].green(), 
         "on the it, and it's flanked by two doors - one on the",
         LEFT_RIGHT_OR_TEDDY_BEAR[0].green(),

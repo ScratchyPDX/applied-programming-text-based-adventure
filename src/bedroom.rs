@@ -16,8 +16,9 @@ impl Bedroom {
 
   pub fn enter(&self) {
     const GO_OR_STAY_LIST: [&str; 3] = ["GO", "STAY", "BACK"];
-    println!("{}, you are in a bedroom.", self.player_name);
- 
+    println!("\n{}, you are in a bedroom.", self.player_name);
+    thread::sleep(Duration::from_secs(2));
+
     print_wrapped_text(
       &format!("\n{} {} {} {} {}", 
         "It's the middle of the night, and you startled awake by a noise coming from outside the room. What do you do??", 

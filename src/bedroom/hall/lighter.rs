@@ -16,13 +16,13 @@ impl Lighter {
 
   pub fn enter(&self) {
     print_wrapped_text(
-      &format!("{} {}{} {} {} {}", 
+      &format!("{} {}{} {} {} {}.", 
         "\n\nYou pick up the", 
         "LIGHTER".green(), 
         ". With a <Click> <Click> the",
         "LIGHTER".green(),
         "comes to life and the flame emits a faint",
-        "glow.".yellow()
+        "glow".yellow().bold().on_color("red")
         ));
     let table = Table::new();
     table.enter();

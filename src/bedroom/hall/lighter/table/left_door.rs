@@ -19,9 +19,9 @@ impl LeftDoor {
     print_wrapped_text("\n\nYou steps to the LEFT door and checks the door knob. It turns freely, and you slowly opens the door to the room beyond is dark. You raise the LIGHTER to illuminate the space beyond. Just as you do, a hideous monster jumps out from the inky depths and yells, 'BOO!' You die of fright!  To bad. Better luck next time. Bwahahaha!");
     print_wrapped_text(
       &format!("{} {} {}", 
-        "\n\nYou steps to the ", 
+        "\n\nYou steps to the", 
         "LEFT".green(), 
-        "door and checks the door knob. It turns freely, and you slowly opens the door to the room beyond is dark."));
+        "door and checks the door knob. It turns freely, and you slowly open the door..."));
 
         thread::sleep(Duration::from_secs(1));
         print!("{}", "\nC ".red().bold().italic());
@@ -42,6 +42,9 @@ impl LeftDoor {
         print!("{}", "!".red().bold().italic());
         io::stdout().flush().unwrap();
         thread::sleep(Duration::from_secs(1));
+
+        print_wrapped_text("\n\n...to the pitch-black room beyond.");
+        thread::sleep(Duration::from_secs(2));
 
         print_wrapped_text(
           &format!("{} {} {} {} {} {}", 

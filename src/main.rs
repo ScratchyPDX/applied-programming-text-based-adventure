@@ -27,7 +27,7 @@ fn main() {
     player_name = player_name.trim().to_uppercase();
 
     println!("\nHello, {}. Welcome to The Nightmare!!", player_name); 
-    println!("Let's begin....\n");
+    println!("\nLet's begin....");
 
     // Starting location
     let bedroom = Bedroom::new(player_name);

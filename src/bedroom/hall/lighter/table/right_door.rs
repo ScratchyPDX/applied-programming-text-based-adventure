@@ -3,6 +3,7 @@ use crate::utils::get_is_door_locked;
 use crate::utils::print_wrapped_text;
 use crate::bedroom::hall::lighter::table::Table;
 use colored::*;
+use std::{thread, time::Duration};
 
 pub struct RightDoor {
   // Hall-specific fields
@@ -37,7 +38,9 @@ impl RightDoor {
             "LOCKED!".red(),
             "You use the key and it unlocks the door. You slowly turn the knob and it opens! You step through and into freedom..."
         ));
+        thread::sleep(Duration::from_secs(2));
         print_wrapped_text("\n\n...The sound you heard was coming from inside the house!!!!");
+        thread::sleep(Duration::from_secs(2));
         print_wrapped_text("\n\nThanks for playing! Goodbye!");
         quit_game();
     }

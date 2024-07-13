@@ -18,12 +18,12 @@ impl Matches {
   pub fn enter(&self) {
     print_wrapped_text(
       &format!("{} {} {}", 
-        "\n\nYou pick up the box of", 
+        "You pick up the box of", 
         "MATCHES".green(), 
         ", and as you slides the box open, a giant spider crawls out. It immediately bites you on the back of the hand, injecting a deadly venom.", 
         ));
-    thread::sleep(Duration::from_secs(4));
-    print!("{}", "\n\nYOU".red().bold());
+    thread::sleep(Duration::from_secs(8));
+    print!("{}", "\nYOU".red().bold());
     io::stdout().flush().unwrap();
     thread::sleep(Duration::from_secs(1));
     print!("{}", " ARE ".red().bold());

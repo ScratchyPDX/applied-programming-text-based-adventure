@@ -21,7 +21,7 @@ impl Bedroom {
 
     print_wrapped_text(
       &format!("\n{} {} {} {} {}", 
-        "It's the middle of the night, and you startled awake by a noise coming from outside the room. What do you do??", 
+        "It's the middle of the night, and you are startled awake by a noise coming from outside the room. What do you do??", 
         GO_OR_STAY_LIST[0].green(), 
         "check out the noise or", 
         GO_OR_STAY_LIST[1].green(),  
@@ -30,6 +30,7 @@ impl Bedroom {
     let choice = handle_choice(&GO_OR_STAY_LIST).to_string(); 
 
     if choice == "STAY" {
+      clear_screen();
       print!("\n\nOk, stay in bed.... ");
       io::stdout().flush().unwrap();
       thread::sleep(Duration::from_secs(2));

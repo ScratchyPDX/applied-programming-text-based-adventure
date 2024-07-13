@@ -20,7 +20,7 @@ impl RightDoor {
     if get_is_door_locked() {
       print_wrapped_text(
         &format!("{} {} {} {} {}", 
-          "\n\nYou step to the", 
+          "You step to the", 
           "RIGHT".green(), 
           "door and check the door knob....",
           "LOCKED!".red(),
@@ -33,16 +33,17 @@ impl RightDoor {
     else {
         print_wrapped_text(
           &format!("{} {} {} {} {}", 
-            "\n\nYou step to the", 
+            "You step to the", 
             "RIGHT".green(), 
             "door and checks the door knob...",
             "LOCKED!".red(),
             "You use the key and it unlocks the door. You slowly turn the knob and it opens! You step through and into freedom..."
         ));
-        thread::sleep(Duration::from_secs(3));
-        print_wrapped_text("\n\n...The sound you heard was coming from inside the house!!!!");
-        thread::sleep(Duration::from_secs(3));
-        print_wrapped_text("\n\nThanks for playing! Goodbye!");
+        thread::sleep(Duration::from_secs(8));
+        print_wrapped_text("\n...The sound you heard was coming from inside the house!!!!");
+        thread::sleep(Duration::from_secs(5));
+        print_wrapped_text("\nThanks for playing! Goodbye!");
+        thread::sleep(Duration::from_secs(4));
         quit_game();
     }
   }

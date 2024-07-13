@@ -19,7 +19,7 @@ impl TeddyBear {
     set_is_door_locked(false);
     print_wrapped_text(
       &format!("{} {}{} {} {} {} {}", 
-        "\n\nWith apprehension you approach the table and pick up the", 
+        "With apprehension you approach the table and pick up the", 
         "TEDDY BEAR".green(), 
         ". You feel something attached to its back and turns the",
         "TEDDY BEAR".green(),
@@ -27,7 +27,7 @@ impl TeddyBear {
         "KEY".yellow(), 
         "attached and you removes it. Having made a new discovery, you return to the table."
     ));
-    thread::sleep(Duration::from_secs(4));
+    thread::sleep(Duration::from_secs(8));
     let table = Table::new();
     table.enter();
   }

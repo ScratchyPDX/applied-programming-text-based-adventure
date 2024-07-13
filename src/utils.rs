@@ -32,7 +32,7 @@ pub fn handle_choice(choice_list: &[&str]) -> String {
 }
 
 pub fn quit_game() {
-  println!("\n\nQuitting game...\n\n");
+  println!("\nGame over...\n");
   // Exit the program with a success code
   process::exit(0); 
 }

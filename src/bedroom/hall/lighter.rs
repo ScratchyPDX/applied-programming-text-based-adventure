@@ -18,7 +18,7 @@ impl Lighter {
   pub fn enter(&self) {
     print_wrapped_text(
       &format!("{} {}{} {} {} {}.", 
-        "\n\nYou pick up the", 
+        "You pick up the", 
         "LIGHTER".green(), 
         ". With a <Click> <Click> the",
         "LIGHTER".green(),

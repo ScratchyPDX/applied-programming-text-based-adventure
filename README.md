@@ -2,16 +2,14 @@
 
 When learning a new programming language, I typically start with the obligatory “Hello World” project. From there, my projects usually fall into one of two categories: math calculations or game development. This particular project is the latter. Developed in Rust, it is a simple text-based game where the outcome hinges on the choices made by the player.
 
-Since this project is designed to facilitate learning the language, the game is relatively simple, featuring four different outcomes. Only one true path leads the player to a successful conclusion. A decision tree document is available here: https://github.com/ScratchyPDX/applied-programming-text-based-adventure/blob/main/docs/text-based-story-game-flow.jpg
+Since this project is designed to facilitate learning the Rust language, the game is relatively simple, featuring four different outcomes. Only one true path leads the player to a successful conclusion. A decision tree document is available here: https://github.com/ScratchyPDX/applied-programming-text-based-adventure/blob/main/docs/text-based-story-game-flow.jpg
 
-- The user is presented a story where the make choices.
-- The users expected inputs are highlighted in green and evaluated to ensure the user's input is a valid command.
-- Each choice leads to a specific outcome. Make enough correct choices and the user cn complete the story.
-- The user may enter 'quit' and any prompt to end the game.
+- The user is presented a story where they make choices.
+- The expected inputs are highlighted in green and evaluated to ensure the user's input is a valid command.
+- Each choice leads to a specific outcome. Make enough correct choices and the user can complete the story.
+- The user may enter 'quit' at any prompt to end the game.
 
-While not extensive, this project also includes a small example of how unit test are written and included ina Rust project.
-
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
+While not extensive, this project also includes a small example of how unit tests are written and included in a Rust project.
 
 [Software Demo Video](https://youtu.be/yPfs1lDwdVI)
 
